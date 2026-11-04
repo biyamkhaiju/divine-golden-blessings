@@ -9,4 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - The wedding invitation is a single static page at / with components in src/components; no backend needed since the original had no data.
-- vite.config.ts switches the server output to Vercel's format only when VERCEL is set, so Vercel deploys work without affecting Lovable publishing.
+- When VERCEL is set, vite.config.ts disables nitro and prerenders the site to static files in dist/client, and vercel.json pins that output dir; this makes Vercel deploys independent of dashboard settings without affecting Lovable publishing.

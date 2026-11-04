@@ -6,8 +6,10 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Vercel sets VERCEL=1 during its builds; output the Vercel format there,
-// and keep the default target everywhere else (including Lovable publishing).
+// Vercel sets VERCEL=1 during its builds. There the site is exported as plain
+// static files (prerendered index.html in dist/client, see vercel.json), which
+// works regardless of the Vercel dashboard's framework/output settings.
+// Everywhere else (including Lovable publishing) the default target is kept.
 const onVercel = !!process.env["VERCEL"];
 
 export default defineConfig({
@@ -15,6 +17,7 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    ...(onVercel ? { prerender: { enabled: true, crawlLinks: true } } : {}),
   },
-  ...(onVercel ? { nitro: { preset: "vercel" } } : {}),
+  ...(onVercel ? { nitro: false as const } : {}),
 });
