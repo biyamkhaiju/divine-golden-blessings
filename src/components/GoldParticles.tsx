@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 interface Particle {
   x: number;
@@ -15,7 +15,7 @@ export const GoldParticles: React.FC = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let animationFrameId: number;
@@ -25,7 +25,7 @@ export const GoldParticles: React.FC = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
     resize();
 
     const createParticles = () => {
@@ -38,7 +38,7 @@ export const GoldParticles: React.FC = () => {
           size: Math.random() * 2 + 0.5,
           speedY: -(Math.random() * 0.5 + 0.1),
           speedX: (Math.random() - 0.5) * 0.5,
-          opacity: Math.random() * 0.5 + 0.1
+          opacity: Math.random() * 0.5 + 0.1,
         });
       }
     };
@@ -46,8 +46,8 @@ export const GoldParticles: React.FC = () => {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(p => {
+
+      particles.forEach((p) => {
         ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -68,15 +68,10 @@ export const GoldParticles: React.FC = () => {
     draw();
 
     return () => {
-      window.removeEventListener('resize', resize);
+      window.removeEventListener("resize", resize);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
-  return (
-    <canvas 
-      ref={canvasRef} 
-      className="fixed inset-0 pointer-events-none z-10 opacity-70"
-    />
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-10 opacity-70" />;
 };

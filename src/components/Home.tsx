@@ -4,48 +4,91 @@ import { Countdown } from "@/components/Countdown";
 
 /* ── Timeline data ─────────────────────────────── */
 const STORY = [
-  { year: "2020", np: "पहिलो भेट",    en: "First Meeting",  desc: "Two souls crossed paths at a family gathering in Kathmandu — a glance neither could forget." },
-  { year: "2021", np: "मित्रता",       en: "Friendship",     desc: "Late-night calls and long walks through Patan Durbar Square turned strangers into best friends." },
-  { year: "2023", np: "प्रेम",         en: "Love Declared",  desc: "Under a canopy of marigolds, Aashish took Aayushi's hands and told her what his heart always knew." },
-  { year: "2025", np: "सगाई",          en: "Engagement",     desc: "Surrounded by family, rings were exchanged and a promise made — to journey through life together." },
-  { year: "Dec 2026", np: "शुभ विवाह", en: "Wedding Day",   desc: "On the auspicious twelfth of December, they take their seven sacred vows and begin their forever." },
+  {
+    year: "2020",
+    np: "पहिलो भेट",
+    en: "First Meeting",
+    desc: "Two souls crossed paths at a family gathering in Kathmandu — a glance neither could forget.",
+  },
+  {
+    year: "2021",
+    np: "मित्रता",
+    en: "Friendship",
+    desc: "Late-night calls and long walks through Patan Durbar Square turned strangers into best friends.",
+  },
+  {
+    year: "2023",
+    np: "प्रेम",
+    en: "Love Declared",
+    desc: "Under a canopy of marigolds, Aashish took Aayushi's hands and told her what his heart always knew.",
+  },
+  {
+    year: "2025",
+    np: "सगाई",
+    en: "Engagement",
+    desc: "Surrounded by family, rings were exchanged and a promise made — to journey through life together.",
+  },
+  {
+    year: "Dec 2026",
+    np: "शुभ विवाह",
+    en: "Wedding Day",
+    desc: "On the auspicious twelfth of December, they take their seven sacred vows and begin their forever.",
+  },
 ];
 
 const SCHEDULE = [
   { time: "11:00 AM", event: "Mehendi & Sangeet" },
   { time: "12:30 PM", event: "Var Mala Ceremony" },
-  { time: "2:00 PM",  event: "Saptapadi (Seven Vows)" },
-  { time: "5:00 PM",  event: "Wedding Reception & Feast" },
+  { time: "2:00 PM", event: "Saptapadi (Seven Vows)" },
+  { time: "5:00 PM", event: "Wedding Reception & Feast" },
 ];
 
 export default function Home() {
   return (
     <div className="relative w-full overflow-x-hidden text-[#FDFBF7]">
-
       {/* ════════════════════════════════════════
           SECTION 1 — HERO INVITATION
       ════════════════════════════════════════ */}
-      <section id="hero" className="wedding-hero relative flex min-h-[100svh] items-center overflow-hidden px-5 py-10 md:px-8 lg:px-12">
+      <section
+        id="hero"
+        className="wedding-hero relative flex min-h-[100svh] items-center overflow-hidden px-5 py-10 md:px-8 lg:px-12"
+      >
         <div className="wedding-hero-inner relative z-10 mx-auto grid w-full max-w-[1440px] items-center">
           <div className="wedding-hero-copy">
             <ScrollReveal className="wedding-invitation-copy">
               <div className="wedding-mantra">
-                <img src="/ganesh.png" alt="Ganesh" className="w-11 h-11 md:w-14 md:h-14 animate-shimmer" />
+                <img
+                  src="/ganesh.png"
+                  alt="Ganesh"
+                  className="w-11 h-11 md:w-14 md:h-14 animate-shimmer"
+                />
                 <div className="font-yatra text-gold-gradient leading-relaxed">
                   <p className="text-base md:text-lg">ॐ श्री गणेशाय नमः</p>
-                  <p className="mt-1 text-[11px] md:text-xs text-[#FDFBF7]/70">वक्रतुंड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव।</p>
+                  <p className="mt-1 text-[11px] md:text-xs text-[#FDFBF7]/70">
+                    वक्रतुंड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव।
+                  </p>
                 </div>
               </div>
 
               <p className="wedding-eyebrow font-cinzel">With the blessings of our families</p>
               <h1 className="wedding-couple-names font-yatra text-gold-gradient">
                 <span>आशीष</span>
-                <span className="wedding-name-divider" aria-hidden="true">&amp;</span>
+                <span className="wedding-name-divider" aria-hidden="true">
+                  &amp;
+                </span>
                 <span>आयुषी</span>
               </h1>
-              <p className="wedding-name-roman font-cinzel">Aashish <span>&amp;</span> Aayushi</p>
+              <p className="wedding-name-roman font-cinzel">
+                Aashish <span>&amp;</span> Aayushi
+              </p>
 
-              <div className="wedding-date-rule" aria-hidden="true"><span>१२</span><i /><span>१२</span><i /><span>२०२६</span></div>
+              <div className="wedding-date-rule" aria-hidden="true">
+                <span>१२</span>
+                <i />
+                <span>१२</span>
+                <i />
+                <span>२०२६</span>
+              </div>
               <p className="wedding-date font-cinzel">December 12, 2026</p>
 
               <div className="wedding-family">
@@ -70,7 +113,13 @@ export default function Home() {
               <div className="wedding-scroll-cue">
                 <span className="font-cinzel">Scroll to explore</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path
+                    d="M6 9l6 6 6-6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
             </ScrollReveal>
@@ -87,7 +136,9 @@ export default function Home() {
               <span className="font-cinzel">Aashish &amp; Aayushi</span>
               <span className="font-yatra">शुभ विवाह · २०२६</span>
             </figcaption>
-            <span className="wedding-photo-seal font-cinzel" aria-hidden="true">S&nbsp;V</span>
+            <span className="wedding-photo-seal font-cinzel" aria-hidden="true">
+              S&nbsp;V
+            </span>
           </figure>
         </div>
       </section>
@@ -97,7 +148,9 @@ export default function Home() {
       ════════════════════════════════════════ */}
       <section id="countdown" className="py-20 md:py-32 px-5">
         <ScrollReveal className="text-center space-y-4 mb-10">
-          <p className="font-cinzel text-[#D4AF37]/55 tracking-[0.45em] uppercase text-xs">The Big Day Is Near</p>
+          <p className="font-cinzel text-[#D4AF37]/55 tracking-[0.45em] uppercase text-xs">
+            The Big Day Is Near
+          </p>
           <h2 className="font-yatra text-3xl md:text-5xl text-gold-gradient">१२ · १२ · २०२६</h2>
           <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mx-auto" />
         </ScrollReveal>
@@ -111,11 +164,16 @@ export default function Home() {
       ════════════════════════════════════════ */}
       <section id="story" className="py-20 md:py-32 px-5">
         <div className="max-w-4xl mx-auto">
-
           <ScrollReveal className="text-center space-y-3 mb-12 md:mb-16">
-            <img src="/kalash.png" alt="Kalash" className="w-10 h-10 mx-auto animate-shimmer opacity-75" />
+            <img
+              src="/kalash.png"
+              alt="Kalash"
+              className="w-10 h-10 mx-auto animate-shimmer opacity-75"
+            />
             <h2 className="font-yatra text-4xl md:text-6xl text-gold-gradient">हाम्रो कहानी</h2>
-            <p className="font-cinzel text-[#D4AF37]/55 tracking-[0.4em] uppercase text-xs">Our Story</p>
+            <p className="font-cinzel text-[#D4AF37]/55 tracking-[0.4em] uppercase text-xs">
+              Our Story
+            </p>
             <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/45 to-transparent mx-auto" />
             <p className="font-sans text-[#FDFBF7]/65 text-sm md:text-base italic max-w-xl mx-auto leading-relaxed pt-2">
               "दुई मनको मिलन, एउटा जीवनको सुरुवात।"
@@ -129,19 +187,30 @@ export default function Home() {
                 <div className="relative border border-[#D4AF37]/20 rounded-xl bg-black/20 backdrop-blur-sm p-5 hover:border-[#D4AF37]/45 transition-colors duration-300 h-full">
                   {/* Year badge */}
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="w-2 h-2 rounded-full bg-[#D4AF37] shadow-[0_0_0_4px_rgba(212,175,55,0.1)]" aria-hidden="true" />
-                    <span className="font-cinzel text-[#D4AF37]/60 text-xs tracking-widest">{s.year}</span>
+                    <span
+                      className="w-2 h-2 rounded-full bg-[#D4AF37] shadow-[0_0_0_4px_rgba(212,175,55,0.1)]"
+                      aria-hidden="true"
+                    />
+                    <span className="font-cinzel text-[#D4AF37]/60 text-xs tracking-widest">
+                      {s.year}
+                    </span>
                   </div>
                   <h3 className="font-yatra text-lg md:text-xl text-gold-gradient mb-1">{s.np}</h3>
-                  <p className="font-cinzel text-[#D4AF37]/50 text-[10px] tracking-widest uppercase mb-2">{s.en}</p>
-                  <p className="font-sans text-[#FDFBF7]/65 text-xs md:text-sm leading-relaxed">{s.desc}</p>
+                  <p className="font-cinzel text-[#D4AF37]/50 text-[10px] tracking-widest uppercase mb-2">
+                    {s.en}
+                  </p>
+                  <p className="font-sans text-[#FDFBF7]/65 text-xs md:text-sm leading-relaxed">
+                    {s.desc}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
 
           <ScrollReveal className="text-center mt-10">
-            <p className="font-yatra text-xl md:text-2xl text-gold-gradient">आशीष र आयुषी — सधैँ सँगसँगै</p>
+            <p className="font-yatra text-xl md:text-2xl text-gold-gradient">
+              आशीष र आयुषी — सधैँ सँगसँगै
+            </p>
           </ScrollReveal>
         </div>
       </section>
@@ -151,14 +220,17 @@ export default function Home() {
       ════════════════════════════════════════ */}
       <section id="banquet" className="py-20 md:py-32 px-5">
         <div className="max-w-5xl mx-auto space-y-12 md:space-y-16">
-
           {/* Header */}
           <ScrollReveal className="text-center space-y-3">
-            <p className="font-cinzel text-[#D4AF37]/55 tracking-[0.45em] uppercase text-xs">Join Us At</p>
+            <p className="font-cinzel text-[#D4AF37]/55 tracking-[0.45em] uppercase text-xs">
+              Join Us At
+            </p>
             <h2 className="font-cinzel text-2xl sm:text-4xl md:text-5xl text-gold-gradient leading-tight">
               Himalaya Grand Banquet
             </h2>
-            <p className="font-cinzel text-[#D4AF37]/65 tracking-widest text-sm">DURBAR MARG, KATHMANDU</p>
+            <p className="font-cinzel text-[#D4AF37]/65 tracking-widest text-sm">
+              DURBAR MARG, KATHMANDU
+            </p>
             <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/45 to-transparent mx-auto" />
           </ScrollReveal>
 
@@ -180,9 +252,9 @@ export default function Home() {
           <ScrollReveal>
             <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#D4AF37]/20 border border-[#D4AF37]/20 rounded-xl overflow-hidden">
               {[
-                { title: "Capacity",   body: "500+ Guests" },
+                { title: "Capacity", body: "500+ Guests" },
                 { title: "Facilities", body: "3 Premium Halls\nValet Parking" },
-                { title: "Dining",     body: "Multi-Cuisine Buffet\nTraditional Nepali Feast" },
+                { title: "Dining", body: "Multi-Cuisine Buffet\nTraditional Nepali Feast" },
               ].map(({ title, body }) => (
                 <div key={title} className="py-7 px-5 text-center bg-black/20">
                   <h3 className="font-cinzel text-[#D4AF37] text-base md:text-lg mb-2">{title}</h3>
@@ -194,10 +266,15 @@ export default function Home() {
 
           {/* Schedule */}
           <ScrollReveal className="space-y-6">
-            <h3 className="font-cinzel text-xl md:text-3xl text-gold-gradient text-center">Ceremony Schedule</h3>
+            <h3 className="font-cinzel text-xl md:text-3xl text-gold-gradient text-center">
+              Ceremony Schedule
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
               {SCHEDULE.map(({ time, event }) => (
-                <div key={time} className="flex items-center gap-4 p-4 border border-[#D4AF37]/20 rounded-lg bg-black/15 hover:border-[#D4AF37]/45 transition-colors">
+                <div
+                  key={time}
+                  className="flex items-center gap-4 p-4 border border-[#D4AF37]/20 rounded-lg bg-black/15 hover:border-[#D4AF37]/45 transition-colors"
+                >
                   <span className="font-cinzel text-[#D4AF37] text-sm shrink-0">{time}</span>
                   <div className="w-px h-7 bg-[#D4AF37]/25 shrink-0" />
                   <span className="font-sans text-[#FDFBF7]/80 text-sm">{event}</span>
@@ -220,7 +297,6 @@ export default function Home() {
               VIEW ON MAP →
             </a>
           </ScrollReveal>
-
         </div>
       </section>
 

@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 
 const toNepaliDigits = (num: number) => {
-  const nepali = ["०","१","२","३","४","५","६","७","८","९"];
-  return String(num).split("").map((d) => nepali[+d]).join("");
+  const nepali = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+  return String(num)
+    .split("")
+    .map((d) => nepali[+d])
+    .join("");
 };
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -16,10 +19,10 @@ export const Countdown = () => {
       const diff = target - Date.now();
       if (diff <= 0) return;
       setTimeLeft({
-        days:    Math.floor(diff / 86400000),
-        hours:   Math.floor((diff % 86400000) / 3600000),
-        minutes: Math.floor((diff % 3600000)  / 60000),
-        seconds: Math.floor((diff % 60000)    / 1000),
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff % 86400000) / 3600000),
+        minutes: Math.floor((diff % 3600000) / 60000),
+        seconds: Math.floor((diff % 60000) / 1000),
       });
     };
     tick();
@@ -41,7 +44,6 @@ export const Countdown = () => {
 
       {/* Card wrapper */}
       <div className="relative z-10 rounded-2xl border border-[#D4AF37]/25 bg-gradient-to-b from-[#3a0e12]/70 to-[#2A0B0D]/80 backdrop-blur-md shadow-[0_0_60px_rgba(212,175,55,0.12)] overflow-hidden px-6 md:px-10 py-10 md:py-14 flex flex-col items-center gap-8 md:gap-10">
-
         {/* Corner ornaments */}
         {[
           "top-3 left-3 border-t border-l",
@@ -62,7 +64,9 @@ export const Countdown = () => {
           </p>
           <div className="flex items-center gap-3 mt-1">
             <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent to-[#D4AF37]/50" />
-            <span className="font-cinzel text-[#D4AF37]/70 text-[10px] md:text-xs tracking-widest">12 · XII · 2026</span>
+            <span className="font-cinzel text-[#D4AF37]/70 text-[10px] md:text-xs tracking-widest">
+              12 · XII · 2026
+            </span>
             <div className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent to-[#D4AF37]/50" />
           </div>
         </div>
@@ -70,17 +74,38 @@ export const Countdown = () => {
         {/* Boxes */}
         <div className="grid grid-cols-4 gap-2 md:gap-4 w-full">
           {[
-            { label: "दिन",     nepali: toNepaliDigits(timeLeft.days),    arabic: pad(timeLeft.days),    accent: false },
-            { label: "घण्टा",   nepali: toNepaliDigits(timeLeft.hours),   arabic: pad(timeLeft.hours),   accent: false },
-            { label: "मिनेट",  nepali: toNepaliDigits(timeLeft.minutes), arabic: pad(timeLeft.minutes), accent: false },
-            { label: "सेकेन्ड", nepali: toNepaliDigits(timeLeft.seconds), arabic: pad(timeLeft.seconds), accent: true  },
+            {
+              label: "दिन",
+              nepali: toNepaliDigits(timeLeft.days),
+              arabic: pad(timeLeft.days),
+              accent: false,
+            },
+            {
+              label: "घण्टा",
+              nepali: toNepaliDigits(timeLeft.hours),
+              arabic: pad(timeLeft.hours),
+              accent: false,
+            },
+            {
+              label: "मिनेट",
+              nepali: toNepaliDigits(timeLeft.minutes),
+              arabic: pad(timeLeft.minutes),
+              accent: false,
+            },
+            {
+              label: "सेकेन्ड",
+              nepali: toNepaliDigits(timeLeft.seconds),
+              arabic: pad(timeLeft.seconds),
+              accent: true,
+            },
           ].map(({ label, nepali, arabic, accent }) => (
             <div
               key={label}
               className={`relative flex flex-col items-center justify-center gap-1 md:gap-2 py-4 md:py-7 px-1 rounded-xl border overflow-hidden
-                ${accent
-                  ? "border-[#D4AF37]/60 bg-gradient-to-b from-[#D4AF37]/12 to-[#D4AF37]/5 shadow-[0_0_20px_rgba(212,175,55,0.22)]"
-                  : "border-[#D4AF37]/25 bg-[#2A0B0D]/60"
+                ${
+                  accent
+                    ? "border-[#D4AF37]/60 bg-gradient-to-b from-[#D4AF37]/12 to-[#D4AF37]/5 shadow-[0_0_20px_rgba(212,175,55,0.22)]"
+                    : "border-[#D4AF37]/25 bg-[#2A0B0D]/60"
                 }`}
             >
               {/* Nepali large */}

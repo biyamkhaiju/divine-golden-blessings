@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 
-export const ScrollReveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ 
-  children, 
-  className = "" 
+export const ScrollReveal: React.FC<{ children: React.ReactNode; className?: string }> = ({
+  children,
+  className = "",
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -25,7 +25,7 @@ export const ScrollReveal: React.FC<{ children: React.ReactNode; className?: str
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
     );
 
     observer.observe(element);
@@ -34,10 +34,7 @@ export const ScrollReveal: React.FC<{ children: React.ReactNode; className?: str
   }, []);
 
   return (
-    <div 
-      ref={ref} 
-      className={`scroll-reveal ${className}`}
-    >
+    <div ref={ref} className={`scroll-reveal ${className}`}>
       {children}
     </div>
   );
