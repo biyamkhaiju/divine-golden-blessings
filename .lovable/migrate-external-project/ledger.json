@@ -1,0 +1,3 @@
+[{"capability":"wedding invitation site (opening reveal, home, countdown, music)","source":"artifacts/wedding","outcome":"migrate","status":"done","next_action":null},
+{"capability":"database/api","source":"artifacts/api-server","outcome":"skip","status":"accepted","next_action":"Only a health check, no data or users"},
+{"capability":"unused Story/Banquet/Invitation pages and mockup sandbox","source":"artifacts","outcome":"skip","status":"accepted","next_action":"Not reachable in the original app"}]
