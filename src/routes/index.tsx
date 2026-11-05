@@ -43,6 +43,32 @@ function Index() {
   const handleDismiss = useCallback(() => setShowHome(true), []);
 
   useEffect(() => {
+    const a = audioRef.current;
+    if (!a) return;
+    a.volume = 0.32;
+    // Try to autoplay immediately (works when the browser allows it).
+    a.play().catch(() => {});
+    // Browsers often block autoplay until the first user gesture — start
+    // music on the very first interaction anywhere if it is still paused.
+    const startOnGesture = () => {
+      if (a.paused) {
+        a.play().catch(() => {});
+      }
+      window.removeEventListener("pointerdown", startOnGesture);
+      window.removeEventListener("keydown", startOnGesture);
+      window.removeEventListener("touchstart", startOnGesture);
+    };
+    window.addEventListener("pointerdown", startOnGesture);
+    window.addEventListener("keydown", startOnGesture);
+    window.addEventListener("touchstart", startOnGesture);
+    return () => {
+      window.removeEventListener("pointerdown", startOnGesture);
+      window.removeEventListener("keydown", startOnGesture);
+      window.removeEventListener("touchstart", startOnGesture);
+    };
+  }, []);
+
+  useEffect(() => {
     const t = setTimeout(() => setIsRevealed(true), 5200);
     return () => clearTimeout(t);
   }, []);
