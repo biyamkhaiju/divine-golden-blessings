@@ -60,11 +60,6 @@ function Index() {
     return remove;
   }, []);
 
-  useEffect(() => {
-    const t = setTimeout(() => setIsRevealed(true), 5200);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
     <>
       <audio ref={audioRef} src="/wedding-music.mp3" loop preload="auto" />
