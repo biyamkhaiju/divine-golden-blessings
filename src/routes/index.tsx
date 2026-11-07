@@ -48,24 +48,16 @@ function Index() {
     a.volume = 0.32;
     // Try to autoplay immediately (works when the browser allows it).
     a.play().catch(() => {});
-    // Browsers often block autoplay until the first user gesture — start
-    // music on the very first interaction anywhere if it is still paused.
+    // Browsers block sound until a real user gesture. Only some events count
+    // (click, touchend, pointerup, keydown) — keep listening until play succeeds.
+    const events = ["click", "touchend", "pointerup", "keydown"] as const;
+    const remove = () => events.forEach((e) => window.removeEventListener(e, startOnGesture));
     const startOnGesture = () => {
-      if (a.paused) {
-        a.play().catch(() => {});
-      }
-      window.removeEventListener("pointerdown", startOnGesture);
-      window.removeEventListener("keydown", startOnGesture);
-      window.removeEventListener("touchstart", startOnGesture);
+      if (!a.paused) return remove();
+      a.play().then(remove).catch(() => {});
     };
-    window.addEventListener("pointerdown", startOnGesture);
-    window.addEventListener("keydown", startOnGesture);
-    window.addEventListener("touchstart", startOnGesture);
-    return () => {
-      window.removeEventListener("pointerdown", startOnGesture);
-      window.removeEventListener("keydown", startOnGesture);
-      window.removeEventListener("touchstart", startOnGesture);
-    };
+    events.forEach((e) => window.addEventListener(e, startOnGesture));
+    return remove;
   }, []);
 
   useEffect(() => {
